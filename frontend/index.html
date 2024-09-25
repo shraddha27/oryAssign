@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form id="loginForm">
+      <label>Email:</label>
+      <input type="email" id="email" required />
+      <button type="submit">Login with Email</button>
+    </form>
+    <button id="googleLogin">Login with Google</button>
+
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+
+        const response = await fetch('http://localhost:3000/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const result = await response.json();
+        if (result.error) {
+          alert('Login failed: ' + result.error);
+        } else {
+          alert('Login initiated. Check your email for further steps.');
+        }
+      });
+
+      document.getElementById('googleLogin').addEventListener('click', () => {
+        window.location.href = 'http://localhost:3000/auth/google';
+      });
+    </script>
+  </body>
+</html>

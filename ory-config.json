@@ -1,0 +1,11 @@
+{
+  "project_id": "your-project-id",
+  "environment": "production",
+  "clients": [
+      {
+          "client_id": "your-client-id",
+          "client_secret": "your-client-secret",
+          "redirect_uris": ["https://your-app.com/callback"]
+      }
+  ]
+}
