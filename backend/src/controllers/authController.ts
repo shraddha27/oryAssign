@@ -8,7 +8,7 @@ const oryConfig = JSON.parse(fs.readFileSync("ory-config.json", "utf-8"));
 
 const ory = new FrontendApi(new Configuration({
     basePath: "https://jolly-bhabha-sq17gq6hso.projects.oryapis.com",
-    apiKey: "ory_pat_RsDRiDDgbfdrr0SEPp1sGE2nApltrEuB"
+    apiKey: "ory_pat_RsDRiDDgbfdrr0SEPp1sGE2nApltr***"
 }));
 
 export const login = async (req: Request, res: Response) => {
