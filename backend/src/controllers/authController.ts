@@ -16,12 +16,13 @@ export const login = async (req: Request, res: Response) => {
 
     try {
       // Step 1: Create the browser login flow
-      const flowResponse: any = await ory.createBrowserLoginFlow( {
+      let flowResponse: any = await ory.createBrowserLoginFlow( {
         via:email});
-      console.log("flowResponse",flowResponse);
+       // flowResponse = JSON.parse(JSON.stringify(flowResponse));
+      let flowId = flowResponse.data.id;
   
       // Step 2: Update the login flow with email for passwordless login
-      const updatedFlow = await ory.updateLoginFlow(flowResponse.data.id, {
+      const updatedFlow = await ory.updateLoginFlow(flowId,{
         method: 'link'
       });
   
